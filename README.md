@@ -20,7 +20,16 @@ ADDD KEEEYS HEEREREERERE
 
 ## Change Log
 
-08-23-2022 2:55pm - Initial commit.
+Ver. 1.0.0 08-23-2022 2:55pm - Initial commit.
 
-## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+Ver. 1.0.1 08-23-2022 5:55pm - Added package handling and processing as well has serving requests up to clients based on their querries.
+
+Name of feature: Custom Servers with Node and Express
+
+Estimate of time needed to complete: 10hours
+
+Start time: 3pm
+
+Finish time: 11:30pm
+
+Actual time needed to complete: Unfinished

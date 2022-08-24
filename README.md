@@ -24,6 +24,17 @@ Ver. 1.0.0 08-23-2022 2:55pm - Initial commit.
 
 Ver. 1.0.1 08-23-2022 5:55pm - Added package handling and processing as well has serving requests up to clients based on their querries.
 
+## Data Flow Chart
+
+### Class 06 Data Flow Chart
+
+![Data Flow](./img/DataFlow.jpg)
+
+### Class 07 Data Flow Chart
+
+![Data Flow](./img/DataFlow2.jpg)
+
+## Lab 07 Time Estimations
 Name of feature: Custom Servers with Node and Express
 
 Estimate of time needed to complete: 10hours

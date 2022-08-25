@@ -54,6 +54,10 @@ Ver. 1.0.4 08-24-2022 8:58pm - Handled all server traffic and data processing, b
 
 ![Data Flow](./img/DataFlow3.jpg)
 
+### Class 09 Data Flow Chart
+
+![Data Flow 4](./img/DataFlow4.png)
+
 ## Feature Implimentation Tracking
 
 `Name of feature: Custom Servers with Node and Express`
@@ -75,3 +79,13 @@ Start time: 2:30pm
 Finish time: 9:02pm
 
 Actual time needed to complete: 6.5 hours
+
+`Name of feature: Refactoring into Modules`
+
+Estimate of time needed to complete: 4
+
+Start time: 4:11pm
+
+Finish time: _____
+
+Actual time needed to complete: _____

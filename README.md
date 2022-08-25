@@ -1,7 +1,7 @@
 # City Explorer API
 
 **Author**: Daniel Awesome
-**Version**: 1.0.0
+**Version**: 1.0.3
 
 ## Overview
 
@@ -24,7 +24,9 @@ Ver. 1.0.0 08-23-2022 2:55pm - Initial commit.
 
 Ver. 1.0.1 08-23-2022 5:55pm - Added package handling and processing as well has serving requests up to clients based on their querries.
 
-Ver. 1.0.2 08-24-2022 2:43pm - Prep for server handling of API calls and setup of readme file to reflect todays feature implimentation tracking
+Ver. 1.0.2 08-24-2022 2:43pm - Prep for server handling of API calls and setup of readme file to reflect todays feature implimentation tracking.
+
+Ver. 1.0.3 08-24-2022 6:33pm - Setup server side calls for weather data from weatherbit.io and pushed results to the client.
 
 ## Data Flow Chart
 

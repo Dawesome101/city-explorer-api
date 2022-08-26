@@ -8,7 +8,6 @@ async function getWeather(request, response, next) {
     let searchQueryLon = request.query.searchQueryLon;
 
     const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${searchQueryLat}&lon=${searchQueryLon}&key=${process.env.WEATHER_API_KEY}`;
-
     const weatherResponse = await axios.get(url);
 
     let returnWeather = getForcasts(weatherResponse.data);

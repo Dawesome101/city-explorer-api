@@ -31,8 +31,8 @@ function processMovies(moviePacket){
 class Movie {
   constructor(movie){
     this.title = movie.title;
-    this.backdrop = `${movie.backdrop_path}`;
-    this.poster = `${movie.poster_path}`;
+    this.backdrop = `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`;
+    this.poster = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
     this.release_date = movie.release_date;
     this.vote_average = movie.vote_average;
     this.vote_count = movie.vote_count;

@@ -13,7 +13,6 @@ const PORT = process.env.PORT || 3002;
 app.listen(PORT, ()=> console.log(`Listening on: ${PORT}`));
 
 app.get('/weather', getWeather);
-
 app.get('/movies', getMovies);
 
 app.get('*', (request, response) => {

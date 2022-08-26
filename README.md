@@ -34,6 +34,8 @@ Ver. 1.0.3 08-24-2022 6:33pm - Setup server side calls for weather data from wea
 
 Ver. 1.0.4 08-24-2022 8:58pm - Handled all server traffic and data processing, both incomming and outgoing.
 
+Ver. 1.0.5 08-25-2022 6:32 - Cleaned up formating and removed any console logs and generally prepared for a final version submission.
+
 ## Credit and Collaborations
 
 - [The Movie DB Documents](https://developers.themoviedb.org/)
@@ -86,6 +88,6 @@ Estimate of time needed to complete: 4
 
 Start time: 4:11pm
 
-Finish time: _____
+Finish time: 6:36pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2.5 hours

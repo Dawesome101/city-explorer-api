@@ -1,38 +1,67 @@
 'use strict';
 
 const axios = require('axios');
+let cache = require('./cache.js');
+
+const baseURL = 'https://api.themoviedb.org/3/search/movie';
+const cacheInvalidationTime = 1000 * 60;
 
 async function getMovies(request, response, next) {
   try {
     let searchQuery = request.query.searchQuery;
+    let key = 'movies' + searchQuery;
 
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIEDB_API_KEY}&language=en-US&page=1&include_adult=false&query=${searchQuery}`;
-    let unprocessedMovies = await axios.get(url);
+    if (cache[key] && (Date.now() - cache[key].timestamp < cacheInvalidationTime)) {
+      response.status(200).send(cache[key].data);
+    } else {
 
-    let returnMovies = processMovies(unprocessedMovies.data.results);
+      let params = {
+        api_key: process.env.MOVIEDB_API_KEY,
+        language: 'en-US',
+        page: 1,
+        include_adult: false,
+        query: searchQuery
+      };
 
-    response.status(200).send(returnMovies);
+      axios.get(baseURL, { params })
+        .then(movieResults => (parseMovies(movieResults)))
+        .then(parsedMovieData => handleCaching(parsedMovieData, key))
+        .then(parsedMovieData => response.status(200).send(parsedMovieData))
+        .catch(error => next(error));
+    }
   } catch(error) {
     next(error);
   }
 }
 
-function processMovies(moviePacket){
-  let tempArr = [];
+function parseMovies(movieResults){
+  try{
+    const movieSummaries = movieResults.data.results.map((movie) => {
+      return new Movie(movie);
+    });
+    return Promise.resolve(movieSummaries);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+}
 
-  moviePacket.forEach((movie) => {
-    let tempObj = new Movie(movie);
-    tempArr.push(tempObj);
-  });
-
-  return tempArr;
+function handleCaching(parsedData, key){
+  try{
+    cache[key] = {
+      data: parsedData,
+      timestamp: Date.now()
+    };
+    return Promise.resolve(cache[key].data);
+  } catch (error) {
+    return Promise.reject(error);
+  }
 }
 
 class Movie {
   constructor(movie){
     this.title = movie.title;
-    this.backdrop = `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`;
-    this.poster = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+    this.backdrop = movie.backdrop_path;
+    this.poster = movie.poster_path;
     this.release_date = movie.release_date;
     this.vote_average = movie.vote_average;
     this.vote_count = movie.vote_count;
